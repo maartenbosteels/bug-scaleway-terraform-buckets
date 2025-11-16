@@ -2,6 +2,7 @@
 **/.terraform/*
 
 .terraform
+terraform.tfstate
 
 #  Ignore variables files
  *.auto.tfvars
@@ -16,4 +17,4 @@
  .terraformrc
  terraform.rc
 
- plan
+plan

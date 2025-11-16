@@ -1,7 +1,7 @@
 # main.tf
 
-data "scaleway_iam_application" "main" {
-  name = "terraform-buckets-bug"
+data "scaleway_iam_application" "terraform_application" {
+  name = var.terraform_iam_application_name
 }
 
 resource "scaleway_object_bucket" "main" {
@@ -18,20 +18,7 @@ resource "scaleway_object_bucket_policy" "policy" {
         {
           Effect = "Allow",
           Principal = {
-            SCW = "application_id:${data.scaleway_iam_application.main.id}"
-          },
-          Action = [
-            "s3:ListBucket",
-          ]
-          Resource = [
-            "${scaleway_object_bucket.main.name}",
-            "${scaleway_object_bucket.main.name}/*",
-          ]
-        },
-        {
-          Effect = "Allow",
-          Principal = {
-            SCW = "application_id:${data.scaleway_iam_application.main.id}",
+            SCW = "application_id:${data.scaleway_iam_application.terraform_application.id}"
           },
           Action = [
             "s3:GetBucketCORS",
