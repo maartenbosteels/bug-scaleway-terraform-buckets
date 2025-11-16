@@ -19,7 +19,7 @@ tofu plan -out plan -var bucket_suffix=foo -var project_id=$PROJECT_ID
 The second 'tofu plan -out plan' fails.
 Probably because it fails to read (or parse?) the bucket policy.
 
-This is the ouput I get:
+This is the output I get:
 ```
 ╰─± tofu plan -out plan -var bucket_suffix=foo -var project_id=$PROJECT_ID
 data.scaleway_iam_application.main: Reading...
